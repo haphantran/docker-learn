@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+     - docker build -t haphantran/docker-learn -f Dockerfile.dev .
+
+script:
+    - docker run haphantran/docker-learn npm run test -- --coverage
